@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+    <title>Document</title>
+</head>
+
+<body style="background-color:black; color: aliceblue;">
+
+    <%- include('./partials/nav') %>
+
+    <div class="container mt-3">
+        <div class="row">
+            <!-- Loop through the blogs array -->
+            <% blogs.forEach(e => { %>
+                <div class="col-md-4 mb-4">
+                    <div class="card" style="width: 100%;">
+                        <img src="<%= e.coverImageURL %>" class="card-img-top" style="height: 200px;" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= e.title %>
+                            </h5>
+                            <a href="/explain/<%= e._id %>" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <%- include('./partials/script') %>
+</body>
+
+</html>
