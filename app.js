@@ -11,7 +11,11 @@ const path = require("path");
 const blog = require("./models/blog");
 
 mongoose
-  .connect(process.env.MongoDB_URL)
+  .connect(process.env.MongoDB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    tls: true,
+  })
   .then((e) => console.log("Mongodb connected"));
 
 app.use(express.json());
